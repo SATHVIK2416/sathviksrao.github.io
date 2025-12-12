@@ -1,4 +1,4 @@
-// Apple-style smooth scrolling and animations
+// Smooth animations
 document.addEventListener('DOMContentLoaded', function() {
     // Intersection Observer for animations
     const observerOptions = {
@@ -34,8 +34,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Apple-style button interactions
-    document.querySelectorAll('.cta-button, .skill-pill').forEach(button => {
+    // Button interactions
+    document.querySelectorAll('.cta-button').forEach(button => {
         button.addEventListener('mouseenter', function() {
             this.style.transform = 'translateY(-2px) scale(1.02)';
         });
@@ -43,15 +43,9 @@ document.addEventListener('DOMContentLoaded', function() {
             this.style.transform = 'translateY(0) scale(1)';
         });
     });
-
-    // Add stagger animation to skills
-    const skillPills = document.querySelectorAll('.skill-pill');
-    skillPills.forEach((pill, index) => {
-        pill.setAttribute('data-delay', index * 100);
-    });
 });
 
-// Lightweight FPS probe: enable perf mode on slower devices
+// Enable perf mode on slower devices
 function enablePerfModeIfLowFPS() {
     let frames = 0;
     let start = performance.now();
@@ -73,66 +67,13 @@ function enablePerfModeIfLowFPS() {
 }
 window.addEventListener('load', enablePerfModeIfLowFPS, { once: true });
 
-// Apple-style preloader
+// Preloader fade-in
 window.addEventListener('load', function() {
     document.body.style.opacity = '0';
     document.body.style.transition = 'opacity 0.5s ease';
     setTimeout(() => {
         document.body.style.opacity = '1';
     }, 100);
-});
-
-// Keyboard navigation
-document.addEventListener('keydown', function(e) {
-    if (e.key === 'h' && !e.ctrlKey && !e.metaKey) {
-        const homeSection = document.querySelector('#home');
-        if (homeSection && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
-            e.preventDefault();
-            homeSection.scrollIntoView({ behavior: 'smooth' });
-        }
-    }
-    if (e.key === 'c' && !e.ctrlKey && !e.metaKey) {
-        const contactSection = document.querySelector('#contact');
-        if (contactSection && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
-            e.preventDefault();
-            contactSection.scrollIntoView({ behavior: 'smooth' });
-        }
-    }
-});
-
-// Sidebar interactions
-const sidebar = document.getElementById('sidebar');
-const overlay = document.querySelector('.sidebar-overlay');
-const menuToggle = document.querySelector('.menu-toggle');
-const sidebarClose = document.querySelector('.sidebar-close');
-
-function openSidebar() {
-    if (!sidebar) return;
-    sidebar.classList.add('open');
-    overlay && overlay.classList.add('active');
-    menuToggle && menuToggle.setAttribute('aria-expanded', 'true');
-    sidebar.setAttribute('aria-hidden', 'false');
-}
-function closeSidebar() {
-    if (!sidebar) return;
-    sidebar.classList.remove('open');
-    overlay && overlay.classList.remove('active');
-    menuToggle && menuToggle.setAttribute('aria-expanded', 'false');
-    sidebar.setAttribute('aria-hidden', 'true');
-}
-
-menuToggle && menuToggle.addEventListener('click', openSidebar);
-sidebarClose && sidebarClose.addEventListener('click', closeSidebar);
-overlay && overlay.addEventListener('click', closeSidebar);
-
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeSidebar();
-});
-
-document.querySelectorAll('.sidebar .nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-        closeSidebar();
-    });
 });
 
 // p5 Concentric Wavy Rings in hero background
@@ -147,13 +88,12 @@ document.querySelectorAll('.sidebar .nav-link').forEach(link => {
             const rect = host.getBoundingClientRect();
             const cnv = p.createCanvas(rect.width, rect.height);
             cnv.parent(hostId);
-            // Sharpen: allow higher pixel density on capable devices (capped at 2), keep 1 in perf mode
             const perf = document.documentElement.classList.contains('perf');
             const dpr = perf ? 1 : Math.min(window.devicePixelRatio || 1, 2);
             p.pixelDensity(dpr);
             p.noFill();
-            p.stroke(255); // white rings
-            p.strokeWeight(1); // slightly thinner for sharper edge
+            p.stroke(255);
+            p.strokeWeight(1);
         };
         p.windowResized = function() {
             const host = document.getElementById(hostId);
@@ -161,7 +101,6 @@ document.querySelectorAll('.sidebar .nav-link').forEach(link => {
             const rect = host.getBoundingClientRect();
             p.resizeCanvas(rect.width, rect.height);
         };
-        // Precompute / cache ring points to reduce per-frame jitter (stabilizes look -> sharper perception)
         const ringCache = [];
         let frameCounter = 0;
         p.draw = function() {
@@ -169,16 +108,16 @@ document.querySelectorAll('.sidebar .nav-link').forEach(link => {
             p.background(0, 0, 0);
             p.translate(p.width/2, p.height/2);
 
-            const prevOuter = 80 + (40 - 1) * 6.0; // reference outer radius
+            const prevOuter = 80 + (40 - 1) * 6.0;
             const rings = 25;
             const gap = 8.0;
             const baseR = prevOuter - (rings - 1) * gap;
 
-            const timeSpeed = perf ? 0.12 : 0.22; // slower -> less flicker -> crisper
+            const timeSpeed = perf ? 0.12 : 0.22;
             t += 0.01 * timeSpeed;
             frameCounter++;
 
-            const recompute = frameCounter % 2 === 0; // update every 2nd frame
+            const recompute = frameCounter % 2 === 0;
             const step = perf ? 0.03 : 0.024;
 
             if (recompute) {
@@ -188,7 +127,7 @@ document.querySelectorAll('.sidebar .nav-link').forEach(link => {
                     const r = baseR + i * gap;
                     const ringPct = i / (rings - 1);
                     const innerBias = 1 - ringPct;
-                    const ampBase = (perf ? 2.4 : 3.4) * (0.55 + innerBias * 0.45); // reduced amplitude
+                    const ampBase = (perf ? 2.4 : 3.4) * (0.55 + innerBias * 0.45);
                     const fineAmp = ampBase * 0.3;
                     const phase = i * 0.35;
                     for (let a = 0; a < p.TWO_PI + step; a += step) {
@@ -211,8 +150,7 @@ document.querySelectorAll('.sidebar .nav-link').forEach(link => {
 
             for (let i = 0; i < ringCache.length; i++) {
                 const { pts, ringPct } = ringCache[i];
-                // Higher opacity for sharper edge; slight falloff outward
-                const alpha = 200 - ringPct * 110; // 180 -> 70
+                const alpha = 200 - ringPct * 110;
                 p.stroke(255, alpha);
                 p.beginShape();
                 for (let k = 0; k < pts.length; k++) {
@@ -230,7 +168,6 @@ document.querySelectorAll('.sidebar .nav-link').forEach(link => {
         const host = document.getElementById(hostId);
         if (!host) return;
         sketchInstance = new p5(ringsSketch);
-        // fade in canvas
         requestAnimationFrame(() => requestAnimationFrame(() => {
             const canvas = host.querySelector('canvas');
             if (canvas) canvas.style.setProperty('opacity', '0.35', 'important');
@@ -268,28 +205,5 @@ document.querySelectorAll('.sidebar .nav-link').forEach(link => {
         obs.observe(homeSection);
     });
 
-    // Cleanup
     window.addEventListener('beforeunload', unmount);
-})();
-
-// Corner Cat interactions (background, top-right)
-(function setupCornerCat(){
-  const cat = document.querySelector('.corner-cat-bg');
-  if (!cat) return;
-  let timer = null;
-  function sleep() {
-    cat.classList.remove('wake');
-    cat.classList.add('sleep');
-    // after transition settle, remove helper class
-    setTimeout(() => cat.classList.remove('sleep'), 300);
-  }
-  function wake() {
-    cat.classList.add('wake');
-  }
-  cat.addEventListener('click', () => {
-    wake();
-    if (timer) clearTimeout(timer);
-    timer = setTimeout(sleep, 2000);
-  });
-  window.addEventListener('beforeunload', () => { if (timer) clearTimeout(timer); });
 })();
