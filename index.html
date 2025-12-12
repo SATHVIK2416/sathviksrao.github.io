@@ -4,82 +4,231 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Portfolio of Sathvik S Rao — developer and designer building efficient digital experiences.">
-    <meta name="theme-color" content="#000000">
-    <title>Sathvik S Rao | Developer</title>
+    <meta name="description" content="Sathvik S Rao — Developer & Designer">
+    <meta name="theme-color" content="#CDF436">
+    <title>SATHVIK S RAO | OFFICIAL</title>
+    <!-- Preconnect for fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Using Oswald for that condensed powerful look, and Inter for body -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 
-<body>
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div id="vanta-bg" class="vanta-layer"></div>
-        <div class="hero-content">
-            <h1 class="hero-title">Sathvik S Rao</h1>
-            <p class="hero-subtitle">Developer • Designer • Problem Solver</p>
-            <p class="hero-description">
-                Building efficient digital solutions with clean code and thoughtful design.
-            </p>
-            <div class="hero-buttons">
-                <a href="mailto:sathvik1616@gmail.com" class="cta-button">Get In Touch</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="section" id="contact">
-        <div class="container">
-            <h2 class="section-title" data-animate>Contact</h2>
-            <div class="contact-content">
-                <div class="contact-info" data-animate>
-                    <div class="contact-item">
-                        <span class="contact-label">Email</span>
-                        <span class="contact-value"><a
-                                href="mailto:sathvik1616@gmail.com">sathvik1616@gmail.com</a></span>
-                    </div>
-                    <div class="contact-item">
-                        <span class="contact-label">Phone</span>
-                        <span class="contact-value"><a href="tel:+917022925225">+91 70229 25225</a></span>
-                    </div>
-                    <div class="contact-item">
-                        <span class="contact-label">LinkedIn</span>
-                        <span class="contact-value"><a href="https://www.linkedin.com/in/sathvik-s-rao/" target="_blank"
-                                rel="noopener noreferrer">linkedin.com/in/sathvik-s-rao</a></span>
-                    </div>
-                    <div class="contact-item">
-                        <span class="contact-label">Instagram</span>
-                        <span class="contact-value"><a href="https://www.instagram.com/sathvik_2416/?hl=en"
-                                target="_blank" rel="noopener noreferrer">@sathvik_2416</a></span>
-                    </div>
-                    <div class="contact-item">
-                        <span class="contact-label">GitHub</span>
-                        <span class="contact-value"><a href="https://github.com/SATHVIK2416" target="_blank"
-                                rel="noopener noreferrer">github.com/SATHVIK2416</a></span>
-                    </div>
-                    <div class="contact-item">
-                        <span class="contact-label">Location</span>
-                        <span class="contact-value">Bengaluru</span>
-                    </div>
-                </div>
-                <div class="contact-buttons" data-animate>
-                    <a href="mailto:sathvik1616@gmail.com" class="cta-button">Contact Me</a>
+<body class="loading">
+    <!-- Fullscreen Menu Overlay -->
+    <div class="menu-overlay">
+        <div class="menu-content">
+            <nav class="menu-nav">
+                <a href="#home" class="menu-link" data-text="HOME">HOME</a>
+                <a href="#about" class="menu-link" data-text="ABOUT">ABOUT</a>
+                <a href="#work" class="menu-link" data-text="WORK">WORK</a>
+                <a href="#contact" class="menu-link" data-text="CONTACT">CONTACT</a>
+            </nav>
+            <div class="menu-footer">
+                <div class="menu-socials">
+                    <a href="https://github.com/SATHVIK2416" target="_blank">GH</a>
+                    <a href="https://www.linkedin.com/in/sathvik-s-rao/" target="_blank">LI</a>
+                    <a href="https://www.instagram.com/sathvik_2416/" target="_blank">IG</a>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p class="footer-text">Designed with care. Built with precision.<br>&copy; 2025 Sathvik S Rao. All rights
-                reserved.</p>
+    <!-- Sticky Header -->
+    <header class="header">
+        <a href="#home" class="logo">SATHVIK S RAO <span class="accent-dot">.</span></a>
+        <button class="menu-trigger">
+            <span class="menu-text">MENU</span>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+            </div>
+        </button>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Home / Hero Section -->
+        <section id="home" class="hero-section">
+            <div id="vanta-bg" class="background-canvas"></div>
+
+            <div class="hero-container">
+                <div class="hero-main-text">
+                    <h1 class="glitch-text" data-text="SATHVIK">SATHVIK</h1>
+                    <h1 class="outline-text" data-text="S RAO">S RAO</h1>
+                </div>
+
+                <div class="hero-meta">
+                    <div class="meta-block">
+                        <span class="label">ROLE</span>
+                        <span class="value">FULL STACK DEV</span>
+                    </div>
+                    <div class="meta-block">
+                        <span class="label">BASED</span>
+                        <span class="value">BENGALURU, IN</span>
+                    </div>
+                    <div class="meta-block">
+                        <span class="label">STATUS</span>
+                        <span class="value live-dot">AVAILABLE</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Infinite Marquee -->
+            <div class="marquee-container">
+                <div class="marquee-content">
+                    <span>DEVELOPER</span><span class="divider">•</span>
+                    <span>DESIGNER</span><span class="divider">•</span>
+                    <span>PROBLEM SOLVER</span><span class="divider">•</span>
+                    <span>CREATOR</span><span class="divider">•</span>
+                    <span>DEVELOPER</span><span class="divider">•</span>
+                    <span>DESIGNER</span><span class="divider">•</span>
+                    <span>PROBLEM SOLVER</span><span class="divider">•</span>
+                    <span>CREATOR</span><span class="divider">•</span>
+                </div>
+                <div class="marquee-content" aria-hidden="true">
+                    <span>DEVELOPER</span><span class="divider">•</span>
+                    <span>DESIGNER</span><span class="divider">•</span>
+                    <span>PROBLEM SOLVER</span><span class="divider">•</span>
+                    <span>CREATOR</span><span class="divider">•</span>
+                    <span>DEVELOPER</span><span class="divider">•</span>
+                    <span>DESIGNER</span><span class="divider">•</span>
+                    <span>PROBLEM SOLVER</span><span class="divider">•</span>
+                    <span>CREATOR</span><span class="divider">•</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- About / Stats Section (Grid) -->
+        <section id="about" class="grid-section">
+            <div class="grid-container bento-grid">
+                <div class="grid-item double-width text-block">
+                    <h2 class="section-heading">ABOUT <span class="accent">ME</span></h2>
+                    <p class="lead-text">Building efficient digital solutions with clean code and thoughtful design.
+                        Focused on creating scalable applications.</p>
+                    <div class="tech-stack-mini">
+                        <span>REACT</span><span>NODE</span><span>NEXT.JS</span><span>JAVA</span>
+                    </div>
+                </div>
+                <div class="grid-item stat-card">
+                    <span class="stat-num" data-val="02">0</span>
+                    <span class="stat-label">YEARS EXP</span>
+                </div>
+                <div class="grid-item stat-card neon-bg">
+                    <span class="stat-num dark" data-val="10">0</span>
+                    <span class="stat-label dark">PROJECTS</span>
+                </div>
+                <div class="grid-item stat-card">
+                    <span class="stat-num" data-val="100">0</span>
+                    <span class="stat-label">% COMMITMENT</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Work Section (Grid) -->
+        <section id="work" class="grid-section">
+            <div class="section-header-row">
+                <h2>SELECTED <span class="outline">WORK</span></h2>
+                <a href="https://github.com/SATHVIK2416" target="_blank" class="view-all-btn">GITHUB -></a>
+            </div>
+
+            <div class="grid-container projects-grid">
+                <!-- Project 1 -->
+                <article class="project-card">
+                    <div class="card-header">
+                        <span class="project-id">01</span>
+                        <span class="project-cat">WEB APP</span>
+                    </div>
+                    <div class="card-body">
+                        <h3>MODERN WEB APP</h3>
+                        <p>React application with real-time features and smooth animations.</p>
+                        <div class="tags">
+                            <span>REACT</span><span>NODE</span><span>MONGO</span>
+                        </div>
+                    </div>
+                    <div class="card-hover-reveal"></div>
+                </article>
+
+                <!-- Project 2 -->
+                <article class="project-card accent-border">
+                    <div class="card-header">
+                        <span class="project-id">02</span>
+                        <span class="project-cat">MOBILE</span>
+                    </div>
+                    <div class="card-body">
+                        <h3>MOBILE EXPERIENCE</h3>
+                        <p>Cross-platform mobile app with native performance.</p>
+                        <div class="tags">
+                            <span>REACT NATIVE</span><span>TS</span><span>FIREBASE</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 3 -->
+                <article class="project-card">
+                    <div class="card-header">
+                        <span class="project-id">03</span>
+                        <span class="project-cat">PLATFORM</span>
+                    </div>
+                    <div class="card-body">
+                        <h3>CULTURAL PLATFORM</h3>
+                        <p>Digital platform celebrating South Indian art forms.</p>
+                        <div class="tags">
+                            <span>VUE</span><span>THREE.JS</span><span>PYTHON</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="contact-container">
+                <div class="contact-header">
+                    <h2>READY TO START?</h2>
+                </div>
+
+                <a href="mailto:sathvik1616@gmail.com" class="giant-link">
+                    <span>LET'S TALK</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M7 17L17 7M17 7H7M17 7V17" stroke-width="2" stroke-linecap="square" />
+                    </svg>
+                </a>
+
+                <div class="contact-grid">
+                    <div class="contact-option">
+                        <span class="opt-label">EMAIL</span>
+                        <a href="mailto:sathvik1616@gmail.com">sathvik1616@gmail.com</a>
+                    </div>
+                    <div class="contact-option">
+                        <span class="opt-label">PHONE</span>
+                        <a href="tel:+917022925225">+91 70229 25225</a>
+                    </div>
+                    <div class="contact-option">
+                        <span class="opt-label">SOCIAL</span>
+                        <div class="social-links-row">
+                            <a href="https://www.linkedin.com/in/sathvik-s-rao/" target="_blank">LINKEDIN</a>
+                            <a href="https://github.com/SATHVIK2416" target="_blank">GITHUB</a>
+                            <a href="https://www.instagram.com/sathvik_2416/" target="_blank">INSTAGRAM</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-brand">SR . 2025</div>
+            <div class="footer-loc">BENGALURU • INDIA</div>
         </div>
     </footer>
 
-    <!-- p5 for background sketch -->
+    <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
-    <!-- Main script -->
     <script src="script.js"></script>
 </body>
 
